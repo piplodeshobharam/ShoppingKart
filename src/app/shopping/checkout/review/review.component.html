@@ -1,0 +1,63 @@
+<h4 class="mb-3">Review Your Order</h4>
+<div *ngIf="items.length">
+    <div>
+        <div class="row" *ngFor="let item of items; let i = index">
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div class="col justify-content-center" routerLink="/products/{{item.product.id}}" >
+              <img
+                class="img-thumbnail"
+                src="{{item.product.imageURLs[0]}}"
+                alt="product-name"/>
+            </div>
+            <div class="col-7 justify-content-center">
+              <div class="product-name">
+                <a routerLink="/products/{{item.product.id}}">{{item.product.name}}</a>
+                  <div> <p><small>{{ item.product.description[0]}}</small></p></div>
+                  <div> <strong>{{item.product.currency}} {{item.product.price}}</strong> </div>
+              </div>
+            </div>
+            <div class="col justify-content-center">
+              <input
+                id="quantity"
+                type="number"
+                min="1"
+                step="1"
+                [(ngModel)]='item.quantity'
+                value="{{item.quantity}}"
+                class="form-control quantity-input"/>
+            </div>
+            <div class="col justify-content-end">
+                <a class="btn btn-outline-primary btn-sm" routerLink="/mykart">Edit</a>
+              </div>
+          </li>
+        </div>
+      </div>
+</div>
+
+
+<div class="row padding-top-1x mt-3">
+  <div class="col-sm-6">
+    <h5>Shipping to:</h5>
+    <ul class="list-unstyled">
+      <li>
+        <span class="text-muted">Customer Name:</span>{{customer.firstname}} {{customer.lastname}}</li>
+      <li>
+        <span class="text-muted">Delivery Address:</span>{{customer.address1}} {{customer.address2}}</li>
+      <li>
+        <span class="text-muted">Cobtact Number:</span>{{customer.phone}}</li>
+    </ul>
+  </div>
+  <div class="col-sm-6">
+    <h5>Payment method:</h5>
+    <ul class="list-unstyled">
+      <li>
+        <span class="text-muted">{{ paymentMethod }}</span></li>
+    </ul>
+  </div>
+</div>
+
+<div>
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button  (click)="onCompleteOrder()">Complete Order</button>
+</div>
+

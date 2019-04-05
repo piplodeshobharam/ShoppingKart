@@ -1,0 +1,19 @@
+.product-card {
+    width: 300px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
+    
+  }
+  
+  .product-header-image {
+    background-size: cover;
+  }

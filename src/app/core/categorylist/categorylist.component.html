@@ -1,0 +1,25 @@
+ <div
+  class="d-flex flex-column flex-md-row align-items-center p-2 px-md-2 mb-2 bg-white border-bottom box-shadow">
+  <div class="container">
+    <div class="row justify-content-md-start">
+      <nav class="navbar-nav mr-auto">
+
+          <button mat-button [matMenuTriggerFor]="menuMyList">Electronics</button>
+          <mat-menu #menuMyList="matMenu">
+              <table class="table table-borderless table-hover">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Mobiles</th>
+                    </tr>
+                  </thead>
+                  <tbody >
+                    <tr *ngFor="let item of items">
+                      <button mat-menu-item (click)="onContextMenuAction(item)" routerLink ="/products/">{{item.name}}</button>
+                    </tr>
+                  </tbody>
+                </table>
+          </mat-menu>
+      </nav>
+    </div>
+  </div>
+</div>

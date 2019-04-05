@@ -1,0 +1,24 @@
+<div class="container padding-bottom-3x mb-2">
+  <div class="row">
+    <div class="col-md-8 order-md-1">
+      <mat-horizontal-stepper linear="true" #stepper>
+          <mat-step label="{{steps[0]}}">
+              <app-checkout-address></app-checkout-address>
+          </mat-step>
+
+          <mat-step label="{{steps[1]}}">
+              <app-checkout-payment></app-checkout-payment>
+          </mat-step>
+
+          <mat-step label="{{steps[2]}}">
+              <app-checkout-review></app-checkout-review>
+          </mat-step>
+
+        </mat-horizontal-stepper>
+
+    </div>
+    <div class="col-md-4 order-md-2 mb-4">
+      <app-checkout-sidebar></app-checkout-sidebar>
+    </div>
+  </div>
+</div>

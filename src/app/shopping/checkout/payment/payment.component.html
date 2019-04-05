@@ -1,0 +1,34 @@
+<h4>
+  Payment Options
+</h4>
+<hr class="padding-bottom-1x" />
+<form
+     [formGroup]="formPayment"
+     (ngSubmit)="onSubmit()">
+
+  <mat-radio-group
+    class="example-radio-group "
+    formControlName ="paymentMethod"
+    [(ngModel)]="selectedPaymentMethod">
+
+    <mat-radio-button
+      class="example-radio-button"
+      *ngFor="let paymentMethod of paymentMethods"
+      [value]="paymentMethod">
+      {{ paymentMethod }}
+    </mat-radio-button>
+
+  </mat-radio-group>
+
+  <div>
+    <button mat-button matStepperPrevious>Back</button>
+    <button
+      mat-button
+      matStepperNext
+      type="submit"
+      [disabled]="formPayment.invalid">
+      Next
+    </button>
+  </div>
+
+</form>

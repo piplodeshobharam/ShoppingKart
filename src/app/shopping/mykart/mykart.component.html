@@ -1,0 +1,86 @@
+<div class="container" *ngIf="quantity; else NoItems">
+  <div class="row">
+     <!-- Product Container -->
+    <div class="col-md-8 order-md-1">
+      <div class="row" *ngFor="let item of items">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div class="col justify-content-center">
+            <img
+              class="img-thumbnail"
+              src="{{item.product.imageURLs[0]}}"
+              alt="product-name"/>
+          </div>
+          <div class="col-7 justify-content-center">
+            <div class="product-name">
+              <a>{{item.product.name}}</a>
+                <div> <p><small>{{ item.product.description[0]}}</small></p></div>
+                <div> <strong>{{item.product.currency}} {{ item.product.price * item.quantity }}</strong> </div>
+            </div>
+          </div>
+          <div class="col justify-content-center">
+            <input
+              id="quantity"
+              type="number"
+              min="1"
+              step="1"
+              [(ngModel)]='item.quantity'
+              value="{{item.quantity}}"
+              (input)="onQuantityChanges(item.quantity,item)"
+              class="form-control quantity-input"/>
+          </div>
+          <div class="col justify-content-end">
+                <button mat-button  (click)="onRemoveItem($event, item)" >
+                  <mat-icon>delete_forever</mat-icon>
+                </button>
+            </div>
+        </li>
+      </div>
+    </div>
+    <div class="col-md-4 order-md-2 mb-4">
+      <!-- <mat-card class="product-card box-shadow">
+        <mat-card-title>Price Details</mat-card-title>
+        <mat-card-content>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>Price ({{ quantity }} items)</td>
+                <td>Rs {{ total }}</td>
+              </tr>
+              <tr>
+                <td>Delivery Charg</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>Amount Payable</td>
+                <td>Rs {{ total }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-card-content>
+      </mat-card> -->
+      <app-checkout-sidebar></app-checkout-sidebar>
+      <mat-card class="card-margin">
+        <div class="row">
+          <div class="col">
+            <button mat-raised-button color="primary" (click)="onContinueShopping()">Continue Shopping</button>
+          </div>
+          <div class="col">
+            <button mat-raised-button color="primary" (click)="onCheckOut()"> Checkout </button>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<ng-template #NoItems>
+    <div class="no-item-card">
+        <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Your Shopping Cart is empty</h5>
+            </div>
+          </div>
+    </div>
+</ng-template>
+
+

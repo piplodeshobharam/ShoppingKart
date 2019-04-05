@@ -1,0 +1,64 @@
+<header>
+  <div
+    class="d-flex flex-column flex-md-row align-items-center p-2 px-md-2 mb-2 bg-white border-bottom box-shadow">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-1 align-self-center">
+          <a class="py-2" routerLink="/">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="d-block mx-auto">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+              <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+              <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+              <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+              <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+              <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+            </svg>
+          </a>
+        </div>
+        <div class="col-8 align-self-start">
+          <app-search></app-search>
+        </div>
+        <div class="col-3 align-self-end">
+          <nav class="my-2 my-md-0 mr-md-3">
+            <button mat-button [matMenuTriggerFor]="menu">
+              <mat-icon aria-label="Example icon-button with a heart icon">person_outline</mat-icon
+              >
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item routerLink="/mywishlist"  *ngIf="isAuthenticate()">
+                Wishlist
+              </button>
+              <button mat-menu-item routerLink="/myorder"  *ngIf="isAuthenticate()">Orders</button>
+              <button mat-menu-item routerLink="/signin"  *ngIf="!isAuthenticate()">Sign In</button>
+              <button mat-menu-item routerLink="/signup" *ngIf="!isAuthenticate()">Sign Up</button>
+              <button mat-menu-item *ngIf="isAuthenticate()" (click)="onLogout()">Sign Out</button>
+            </mat-menu>
+
+            <button mat-button routerLink="/mykart">
+              <mat-icon matBadge="{{quantity}}" matBadgeColor="warn">shopping_cart</mat-icon>
+            </button>
+
+            <button mat-button [matMenuTriggerFor]="menuMore">
+              <mat-icon aria-label="Example icon-button with a heart icon">more_horiz</mat-icon>
+            </button>
+            <mat-menu #menuMore="matMenu">
+              <button mat-menu-item>Customer Care</button>
+              <button mat-menu-item>Notification Settings</button>
+            </mat-menu>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

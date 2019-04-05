@@ -1,0 +1,31 @@
+    <div class="container">
+        <div class="row">
+           <!-- Product Container -->
+          <div class="col-sm-8">
+            <div class="row" *ngFor="let num of [1,2,3]">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div class="col-3 justify-content-center">
+                  <img
+                    class="img-thumbnail"
+                    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                    alt="Photo of a Shiba Inu"/>
+                </div>
+                <div class="col justify-content-center">
+                  <div class="product-name">
+                    <a href="#">Lorem Ipsum dolor</a>
+                    <div class="product-info">
+                        <strong>Rs 120/-</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="col d-flex justify-content-end">
+                    <button mat-button >
+                      <mat-icon aria-label="Example icon-button with a heart icon">delete_forever</mat-icon>
+                    </button>
+                  </div>
+              </li>
+            </div>
+          </div>
+        </div>
+      </div>
+

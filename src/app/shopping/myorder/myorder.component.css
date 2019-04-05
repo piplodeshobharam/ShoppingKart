@@ -1,0 +1,8 @@
+ng-template .no-item-card {
+  width: 500px;
+  height: 500px;
+}
+
+.card-margin {
+  margin-top: 10px;
+}

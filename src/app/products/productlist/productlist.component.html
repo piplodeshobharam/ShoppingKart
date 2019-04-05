@@ -1,0 +1,39 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-2 mb-2 bg-white border-bottom box-shadow">
+  <div class="container" *ngIf="products">
+    <div class="row">
+        <div class="col-md-3 col-sm-6" *ngFor="let product of products">
+
+          <div class="product-grid">
+              <div class="product-image">
+                  <a routerLink="/products/{{product.id}}">
+                      <img class="pic-1" src="{{product.imageURLs[0]}}">
+                      <img class="pic-2" src="{{product.imageURLs[1]}}">
+                  </a>
+                  <ul class="social">
+                      <li><a><i class="fa fa-shopping-bag" (click)="onBuyNow(product)"></i></a></li>
+                      <li><a><i class="fa fa-shopping-cart" (click)="onAddToCart(product)"></i></a></li>
+                  </ul>
+                  <span class="product-new-label" *ngIf="product.isNew">New</span>
+              </div>
+              <div class="product-content">
+                  <h3 class="title"><a>{{product.name}}</a></h3>
+                  <div class="price">
+                    {{product.currency}}
+                    {{product.offerprice}}
+                    <span> {{product.price}}</span>
+                </div>
+
+                  <ul class="rating">
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star disable"></li>
+                      <li class="fa fa-star disable"></li>
+                  </ul>
+              </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+

@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="card" *ngIf="product">
+        <div class="row" class="d-flex justify-content-center">
+            <aside class="col-sm-6" >
+                <article class="gallery-wrap ">
+                    <div class="img-big-wrap d-flex justify-content-center">
+                        <img src="{{activeImageUrl}}">
+                    </div>
+
+                    <!-- slider-product.// -->
+                    <div class="img-small-wrap">
+                        <div class="item-gallery" *ngFor="let imgUrl of product.imageURLs; let i = index">
+                            <img src="{{imgUrl}}" (click)="onSelectThumbnail($event, i)">
+                         </div>
+                    </div>
+                    <!-- slider-nav.// -->
+                </article>
+                <!-- gallery-wrap .end// -->
+            </aside>
+            <aside class="col-sm-6">
+                <article class="card-body p-5">
+                    <h3 class="title mb-3">{{product.name}}</h3>
+
+                    <p class="price-detail-wrap">
+                        <span class="price h3 text-warning">
+                            <span class="currency">{{product.currency}} </span>
+                            <span class="num">{{product.price}} /-</span>
+                        </span>
+                    </p>
+                    <!-- price-detail-wrap .// -->
+                    <dl class="item-property">
+                        <dt>Description:</dt>
+                        <dd *ngFor="let des of product.description">
+                           <p>{{des}}</p>
+                        </dd>
+                    </dl>
+                    <hr>
+                    <div class="example-button-row">
+                        <button mat-flat-button color="primary" (click)="onBuyNow(product)">Buy</button>
+                        <button mat-flat-button color="accent" (click)="onAddToCart(product)">Add to Card</button>
+                    </div>
+                </article>
+                <!-- card-body.// -->
+            </aside>
+            <!-- col.// -->
+        </div>
+        <!-- row.// -->
+    </div>
+    <!-- card.// -->
+
+</div>
+<!--container.//-->

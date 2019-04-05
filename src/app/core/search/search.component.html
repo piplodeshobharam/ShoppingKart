@@ -1,0 +1,21 @@
+<form  [formGroup]="searchForm"
+(ngSubmit)="onSearch()">
+
+  <div class="input-group">
+    <input
+    type="text"
+    id="inputSearch"
+    class="form-control"
+    placeholder="Type to search..."
+    formControlName="search"
+    required>
+
+    <div class="input-group-append">
+      <button class="btn btn-secondary" type="submit" [disabled]="searchForm.invalid">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+
+  </div>
+
+</form>
